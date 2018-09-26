@@ -2,6 +2,7 @@ prometheus:
   user: prometheus
   group: prometheus
   server:
+    listen_address: 127.0.0.1:9090
     version: 1.4.1.linux-amd64
     install_dir: /opt
     source: https://github.com/prometheus/prometheus/releases/download/v1.4.1/prometheus-1.4.1.linux-amd64.tar.gz

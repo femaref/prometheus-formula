@@ -34,6 +34,7 @@ prometheus_defaults:
     - defaults:
         config_file: {{ prometheus.server.args.config_file }}
         storage_local_path: {{ prometheus.server.args.storage.local_path }}
+        listen_address: {{ prometheus.server.listen_address }}
         web_console_libraries: {{ prometheus.server.version_path }}/console_libraries
         web_console_templates: {{ prometheus.server.version_path }}/consoles
 
