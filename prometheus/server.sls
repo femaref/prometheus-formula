@@ -10,6 +10,8 @@ prometheus_server_tarball:
     - source_hash: {{ prometheus.server.source_hash }}
     - archive_format: tar
     - if_missing: {{ prometheus.server.version_path }}
+    - user: {{ prometheus.user }}
+    - group: {{ prometheus.group }}
 
 prometheus_bin_link:
   file.symlink:
@@ -18,7 +20,7 @@ prometheus_bin_link:
     - require:
       - archive: prometheus_server_tarball
     - watch:
-      - prometheus_server_tarball
+      - archive: prometheus_server_tarball
 
 prometheus_server_config:
   file.serialize:
