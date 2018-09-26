@@ -17,6 +17,8 @@ prometheus_bin_link:
     - target: {{ prometheus.server.version_path }}/prometheus
     - require:
       - archive: prometheus_server_tarball
+    - watch:
+      - prometheus_server_tarball
 
 prometheus_server_config:
   file.serialize:
