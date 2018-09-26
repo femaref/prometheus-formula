@@ -83,8 +83,8 @@ case "$1" in
     uninstall
     ;;
   restart)
-    stop
-    start
+    do_stop_cmd
+    do_start_cmd
     ;;
   *)
     echo "Usage: $1 {start|stop|status|restart|uninstall}"
