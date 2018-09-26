@@ -20,6 +20,7 @@ prometheus_bin_link:
 
 prometheus_server_config:
   file.serialize:
+    - makedirs: True
     - name: {{ prometheus.server.args.config_file }}
     - user: {{ prometheus.user }}
     - group: {{ prometheus.group }}
