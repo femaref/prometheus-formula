@@ -60,6 +60,7 @@ prometheus_service_unit:
 {%- elif grains.get('init') == 'sysvinit' %}
     - name: /etc/init.d/prometheus
     - source: salt://prometheus/files/prometheus.sysvinit.jinja
+    - mode: 0744
 {%- endif %}
     - watch:
       - file: prometheus_defaults
