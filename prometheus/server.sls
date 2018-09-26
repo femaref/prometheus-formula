@@ -56,6 +56,9 @@ prometheus_service_unit:
 {%- elif grains.get('init') == 'upstart' %}
     - name: /etc/init/prometheus.conf
     - source: salt://prometheus/files/prometheus.upstart.jinja
+{%- elif grains.get('init') == 'sysvinit' %}
+    - name: /etc/init.d/prometheus
+    - source: salt://prometheus/files/prometheus.sysvinit.jinja
 {%- endif %}
     - watch:
       - file: prometheus_defaults
