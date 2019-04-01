@@ -34,6 +34,16 @@ node_exporter_service_unit:
 {%- elif grains.get('init') == 'upstart' %}
     - name: /etc/init/node_exporter.conf
     - source: salt://prometheus/files/node_exporter.upstart.jinja
+{%- elif grains.get('init') == 'sysvinit' %}
+    - name: /etc/init/node_exporter
+    - source: salt://prometheus/files/sysvinit.jinja
+    - template: jinja
+    - context: 
+        daemon_name: node exporter
+        description: Prometheus exporter for machine metrics
+        bin: /usr/bin/node_exporter
+        name: node_exporter
+        user: prometheus      
 {%- endif %}
     - require_in:
       - file: node_exporter_service
