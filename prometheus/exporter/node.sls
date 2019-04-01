@@ -38,6 +38,7 @@ node_exporter_service_unit:
     - name: /etc/init.d/node_exporter
     - source: salt://prometheus/files/sysvinit.jinja
     - template: jinja
+    - mode: 0744
     - context: 
         daemon_name: node exporter
         description: Prometheus exporter for machine metrics
