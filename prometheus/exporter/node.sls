@@ -35,7 +35,7 @@ node_exporter_service_unit:
     - name: /etc/init/node_exporter.conf
     - source: salt://prometheus/files/node_exporter.upstart.jinja
 {%- elif grains.get('init') == 'sysvinit' %}
-    - name: /etc/init/node_exporter
+    - name: /etc/init.d/node_exporter
     - source: salt://prometheus/files/sysvinit.jinja
     - template: jinja
     - context: 
