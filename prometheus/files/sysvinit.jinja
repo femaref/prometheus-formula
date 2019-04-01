@@ -29,7 +29,7 @@ do_start_cmd()
 {
     do_start_prepare
     echo -n "Starting daemon: "$NAME
-	start-stop-daemon --chuid $USER --background --start --quiet --pidfile $PIDFILE --make-pidfile --exec $DAEMON -- $ARGS >> $LOGFILE 2>&1
+	start-stop-daemon -C --chuid $USER --background --start --quiet --pidfile $PIDFILE --make-pidfile --exec $DAEMON -- $ARGS >> $LOGFILE 2>&1
 	echo "."
 }
 
