@@ -25,6 +25,8 @@ node_exporter_defaults:
     - name: /etc/default/node_exporter
     - source: salt://prometheus/files/default-node_exporter.jinja
     - template: jinja
+    - defaults:
+        listen_address: {{ prometheus.exporter.node.listen_address }}
 
 node_exporter_service_unit:
   file.managed:
