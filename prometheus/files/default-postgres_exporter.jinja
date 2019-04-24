@@ -1,5 +1,5 @@
 # Set the command-line arguments to pass to the server.
-ARGS="-web.listen-address {{listen_address}}"
+ARGS="--web.listen-address {{listen_address}}"
 
 DATA_SOURCE_NAME="
 {%- for cluster in salt["postgres.cluster_list"](verbose=True).itervalues() -%}
