@@ -3,7 +3,7 @@ ARGS="-web.listen-address {{listen_address}}"
 
 DATA_SOURCE_NAME="
 {%- for cluster in salt["postgres.cluster_list"](verbose=True).itervalues() -%}
-host=/var/run/postgres user={{cluster["user"]}} port={{cluster["port"]}}
+host=/var/run/postgresql user={{cluster["user"]}} port={{cluster["port"]}}
 {%- if not loop.last -%}
 ,
 {%- endif -%}
