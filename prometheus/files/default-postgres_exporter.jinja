@@ -1,2 +1,11 @@
 # Set the command-line arguments to pass to the server.
 ARGS="-web.listen-address {{listen_address}}"
+
+DATA_SOURCE_NAME="
+{%- for cluster in clusters -%}
+host={{cluster.host}} user={{cluster.user}} port={{cluster.port}}
+{%- if not loop.last -%}
+,
+{%- endif -%}
+{%- endfor -%}
+"
