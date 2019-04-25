@@ -60,3 +60,10 @@ postgres_exporter_service:
       - file: postgres_exporter_service_unit
       - file: postgres_exporter_defaults
       - file: postgres_exporter_bin_link
+
+postgres_exporter_queries:
+  file.managed:
+    - name: /etc/postgresql/queries.yaml
+    - user: postgres
+    - group: postgres
+    - mode: 0644
