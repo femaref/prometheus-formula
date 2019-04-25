@@ -132,7 +132,7 @@ pg_database:
 pg_disk_usage:
   query: |2
   SELECT current_database() datname, *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (
-      SELECT nspname AS table_schema, relname AS TABLE_NAME
+      SELECT nspname AS table_schema, relname AS table_name
               , c.reltuples AS row_estimate
               , pg_total_relation_size(c.oid) AS total_bytes
               , pg_indexes_size(c.oid) AS index_bytes
@@ -142,3 +142,27 @@ pg_disk_usage:
           WHERE relkind = 'r'
   ) a
   metrics:
+    - datname:
+        usage: "LABEL"
+        description: "Name of the database"
+    - table_schema:
+        usage: "LABEL"
+        description: "table schema"
+    - table_name:
+        usage: "LABEL"
+        description: "Name of the database"
+    - row_estimate:
+        usage: "GAUGE"
+        description: "row estimate"
+    - table_bytes:
+        usage: "GAUGE"
+        description: "table bytes"
+    - total_bytes:
+        usage: "GAUGE"
+        description: "total bytes"
+    - index_bytes:
+        usage: "GAUGE"
+        description: "index bytes"
+    - toast_bytes:
+        usage: "GAUGE"
+        description: "toast bytes"
