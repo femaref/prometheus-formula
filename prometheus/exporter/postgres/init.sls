@@ -60,6 +60,7 @@ postgres_exporter_service:
       - file: postgres_exporter_service_unit
       - file: postgres_exporter_defaults
       - file: postgres_exporter_bin_link
+      - file: postgres_exporter_queries
 
 postgres_exporter_queries:
   file.managed:
