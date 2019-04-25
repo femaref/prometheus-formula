@@ -2,7 +2,7 @@
 ARGS="--web.listen-address {{listen_address}} --disable-settings-metrics --extend.query-path=/etc/postgresql/queries.yaml"
 
 export DATA_SOURCE_NAME="
-{%- for cluster in salt["postgres.cluster_list"](verbose=True).itervalues() -%}
+{%- for cluster in salt["postgres.cluster_list"](verbose=True).itervalues() if cluster["status"] == "online" -%}
 {%- for db in salt["postgres.db_list"](host="/var/run/postgresql", port=cluster["port"]) if db not in ["postgres", "template0", "template1"] -%}
 host=/var/run/postgresql user={{cluster["user"]}} port={{cluster["port"]}} database={{db}}
 {%- if not loop.last -%}
