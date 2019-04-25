@@ -55,7 +55,6 @@ postgres_exporter_service:
   service.running:
     - name: postgres_exporter
     - enable: True
-    - reload: True
     - watch:
       - file: postgres_exporter_service_unit
       - file: postgres_exporter_defaults

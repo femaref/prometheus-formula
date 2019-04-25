@@ -55,7 +55,6 @@ node_exporter_service:
   service.running:
     - name: node_exporter
     - enable: True
-    - reload: True
     - watch:
       - file: node_exporter_service_unit
       - file: node_exporter_defaults
