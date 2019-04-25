@@ -129,7 +129,7 @@ pg_database:
         usage: "GAUGE"
         description: "Disk space used by the database"
 
-pg_disk_usage:
+pg_table_size:
   query: |2
     SELECT current_database() datname, *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (
         SELECT nspname AS table_schema, relname AS table_name
