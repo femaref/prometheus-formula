@@ -13,4 +13,5 @@ host=/var/run/postgresql user={{cluster["user"]}} port={{cluster["port"]}} datab
 {%- if not loop.last -%}
 ,
 {%- endif -%}
+{%- endfor -%}
 "
