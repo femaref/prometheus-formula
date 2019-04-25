@@ -28,10 +28,10 @@ prometheus:
       source_hash: sha1=84ca5f711962319f6f7823208b9d867ab1c0e3e7
       listen_address: 127.0.0.1:9100
     postgres:
-      version: v0.4.8_linux-amd64
+      version: v0.4.9_linux-amd64
       install_dir: /opt
-      source: https://github.com/femaref/postgres_exporter/releases/download/v0.4.8/postgres_exporter_v0.4.8_linux-amd64.tar.gz
-      source_hash: https://github.com/femaref/postgres_exporter/releases/download/v0.4.8/postgres_exporter_v0.4.8_linux-amd64.tar.gz.sha1
+      source: https://github.com/femaref/postgres_exporter/releases/download/v0.4.9/postgres_exporter_v0.4.9_linux-amd64.tar.gz
+      source_hash: https://github.com/femaref/postgres_exporter/releases/download/v0.4.9/postgres_exporter_v0.4.9_linux-amd64.tar.gz.sha1
       listen_address: 127.0.0.1:9187
     blackbox:
       version: 0.3.0.linux-amd64
