@@ -131,16 +131,16 @@ pg_database:
 
 pg_disk_usage:
   query: |2
-  SELECT current_database() datname, *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (
-      SELECT nspname AS table_schema, relname AS table_name
-              , c.reltuples AS row_estimate
-              , pg_total_relation_size(c.oid) AS total_bytes
-              , pg_indexes_size(c.oid) AS index_bytes
-              , pg_total_relation_size(reltoastrelid) AS toast_bytes
-          FROM pg_class c
-          LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
-          WHERE relkind = 'r'
-  ) a
+    SELECT current_database() datname, *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (
+        SELECT nspname AS table_schema, relname AS table_name
+                , c.reltuples AS row_estimate
+                , pg_total_relation_size(c.oid) AS total_bytes
+                , pg_indexes_size(c.oid) AS index_bytes
+                , pg_total_relation_size(reltoastrelid) AS toast_bytes
+            FROM pg_class c
+            LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+            WHERE relkind = 'r'
+    ) a
   metrics:
     - datname:
         usage: "LABEL"
