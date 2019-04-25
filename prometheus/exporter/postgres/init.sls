@@ -64,6 +64,7 @@ postgres_exporter_service:
 postgres_exporter_queries:
   file.managed:
     - name: /etc/postgresql/queries.yaml
+    - source: salt://prometheus/exporter/postgres/files/queries.yaml
     - user: postgres
     - group: postgres
     - mode: 0644
