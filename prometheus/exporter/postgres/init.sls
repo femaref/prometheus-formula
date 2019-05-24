@@ -42,7 +42,7 @@ postgres_exporter_service_unit:
     - template: jinja
     - mode: 0744
     - context: 
-        daemon_name: node exporter
+        daemon_name: postgres_exporter
         description: Prometheus exporter for machine metrics
         bin: /usr/bin/postgres_exporter
         name: postgres_exporter

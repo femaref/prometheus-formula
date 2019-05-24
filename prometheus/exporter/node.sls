@@ -42,7 +42,7 @@ node_exporter_service_unit:
     - template: jinja
     - mode: 0744
     - context: 
-        daemon_name: node exporter
+        daemon_name: node_exporter
         description: Prometheus exporter for machine metrics
         bin: /usr/bin/node_exporter
         name: node_exporter
